@@ -1,0 +1,99 @@
+﻿ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ gedit lab4.txt
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ ghex lab4.txt
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ % openssl enc -aes-128-cbc -e -in lab4.txt -out cipher.bin -k ^C
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ % openssl enc -aes-128-cbc -e -in lab4.txt -out cipher.bin -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+bash: fg: %: no such job
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ openssl enc -aes-128-cbc -e -in lab4.txt -out cipher.bin -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ openssl dec -aes-128-cbc -e -in lab4.txt -out cipher.bin -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+Invalid command 'dec'; type "help" for a list.
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ openssl enc -aes-128-cbc -d -in cipher.bin -out decrypted.txt -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ openssl dec -aes-128-cbc -e -in pic_original.bmp -out secret.bin -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+Invalid command 'dec'; type "help" for a list.
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ openssl enc -aes-128-cbc -e -in pic_original.bmp -out secret.bin -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+Can't open "pic_original.bmp" for reading, No such file or directory
+805B2F8BEA730000:error:80000002:system library:BIO_new_file:No such file or directory:../crypto/bio/bss_file.c:67:calling fopen(pic_original.bmp, rb)
+805B2F8BEA730000:error:10000080:BIO routines:BIO_new_file:no such file:../crypto/bio/bss_file.c:75:
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ pwd
+/home/ub41201
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ cd Downloads
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~/Downloads$ openssl enc -aes-128-cbc -e -in pic_original.bmp -out secret.bin -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~/Downloads$ openssl enc -aes-128-cbc -e -in pic_original.bmp -out secret.bmp -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~/Downloads$ head -c 54 pic_original.bmp > header
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~/Downloads$ tail -c +55 secret.bmp > body
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~/Downloads$ cat header body > image.bmp
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~/Downloads$ openssl enc -aes-128-ecb -e -in pic_original.bmp -out image2.bmp -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+warning: iv not used by this cipher
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~/Downloads$ openssl enc -aes-128-ecb -e -in image.bmp -out image2.bmp -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+warning: iv not used by this cipher
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~/Downloads$ openssl enc -aes-128-ecb -e -in pic_original.bmp -out secret2.bmp -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+warning: iv not used by this cipher
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~/Downloads$ head -c 54 pic_original.bmp > header2
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~/Downloads$ tail -c +55 secret2.bmp > body2
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~/Downloads$ cat header2 body2 > image2.bmp
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~/Downloads$
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~/Downloads$
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~/Downloads$
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~/Downloads$
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~/Downloads$ gedit task3.txt
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~/Downloads$ openssl enc -aes-128-ecb -e -in task3.txt -out ecb.bin -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+warning: iv not used by this cipher
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~/Downloads$ cd ..
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ gedit task3.txt
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ openssl enc -aes-128-ecb -e -in task3.txt -out ecb.bmp -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+warning: iv not used by this cipher
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ ghex ecb.bmp
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ openssl enc -aes-128-ecb -d -in ecb.bmp -out ecb.txt -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+warning: iv not used by this cipher
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ openssl enc -aes-128-cbc -e -in task3.txt -out cbc.bin -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ ghex cbc.bin
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ ghex cbc.bin
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ openssl enc -aes-128-cbc -d -in cbc.bin -out cbc.txt -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+bad decrypt
+806B471369710000:error:1C800064:Provider routines:ossl_cipher_unpadblock:bad decrypt:../providers/implementations/ciphers/ciphercommon_block.c:124:
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ openssl enc -aes-128-ofb -e -in task3.txt -out ofb.bin -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ ghex ofb.bin
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ openssl enc -aes-128-ofb -d -in ofb.bin -out ofb.txt -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ openssl enc -aes-128-cfb -e -in task3.txt -out cfb.bin -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ ghex ofb.bin
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ ghex cfb.bin
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ openssl enc -aes-128-cfb -d -in cfb.bin -out cfb.txt -k 929112f8666cf6d44f4d05cacdaa3e8a -iv b159ca23bb83b40d198e1af1f5af3ad9
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+ub41201@ub41201-ASUS-EXPERTCENTER-D700SC-D700MC:~$ S
